@@ -4,9 +4,7 @@ using JetBrains.Annotations;
 using UnityEngine;
 
 public abstract class ObstacleBase : MonoBehaviour
-{
-    // Start is called before the first frame update
-
+{ 
         [SerializeField] protected float speed = 2f;
 
         [SerializeField] protected float destroyXPosition = 10f;
@@ -17,7 +15,7 @@ public abstract class ObstacleBase : MonoBehaviour
         {
             if (transform.position.x < destroyXPosition)
             {
-            Destroy(gameObject);
+                Destroy(gameObject);
             }
         }
     

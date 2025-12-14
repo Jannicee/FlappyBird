@@ -21,7 +21,6 @@ public class BirdController : MonoBehaviour
         if (_isAlive)
         {
             
-           //Debug.Log("Flap!");
             _rb2d.velocity = Vector2.zero;
             _rb2d.velocity = Vector2.up * _flapforce;
    
@@ -32,11 +31,13 @@ public class BirdController : MonoBehaviour
     {
         if (!_isAlive) return;
         _isAlive = false;
-        Debug.Log("Die!");
+        //Debug.Log("Die!");
+        GameManager.Instance.GameOver();
     }
-    // Update is called once per frame
+   
     void Update()
     {
+        if (!GameManager.Instance.IsGameStarted()) return;
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
             Flap();
